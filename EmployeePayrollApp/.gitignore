@@ -12,6 +12,10 @@ target/
 .settings
 .springBeans
 .sts4-cache
+.metadata/
+.classpath
+.project
+.settings/
 
 ### IntelliJ IDEA ###
 .idea
@@ -31,3 +35,11 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Build files
+target/
+bin/
+
+# OS-specific
+.DS_Store
+Thumbs.db
