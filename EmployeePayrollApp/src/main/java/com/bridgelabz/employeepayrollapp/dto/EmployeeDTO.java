@@ -27,8 +27,6 @@ public class EmployeeDTO {
         this.startDate = startDate;
     }
 
-    // Getters and Setters
-    
     public String getName() {
         return name;
     }
@@ -52,5 +50,4 @@ public class EmployeeDTO {
     public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
-
 }
