@@ -1,10 +1,7 @@
 package com.bridgelabz.employeepayrollapp.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "employees")
@@ -12,25 +9,29 @@ public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
+    @Column(nullable = false)
     private String name;
 
-    private Double salary;
+    private double salary;
+
+    private LocalDate startDate;
 
     public Employee() {
     }
 
-    public Employee(String name, Double salary) {
+    public Employee(String name, double salary, LocalDate startDate) {
         this.name = name;
         this.salary = salary;
+        this.startDate = startDate;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -42,11 +43,19 @@ public class Employee {
         this.name = name;
     }
 
-    public Double getSalary() {
+    public double getSalary() {
         return salary;
     }
 
-    public void setSalary(Double salary) {
+    public void setSalary(double salary) {
         this.salary = salary;
+    }
+
+    public LocalDate getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
     }
 }

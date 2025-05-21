@@ -1,24 +1,30 @@
 package com.bridgelabz.employeepayrollapp.dto;
 
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.PastOrPresent;
+import java.time.LocalDate;
 
 public class EmployeeDTO {
 
-    @NotBlank(message = "Name is mandatory")
+    @NotBlank(message = "Employee name is mandatory")
     private String name;
 
-    @NotNull(message = "Salary is mandatory")
-    @Positive(message = "Salary must be positive")
-    private Double salary;
+    @Min(value = 1000, message = "Salary must be at least 1000")
+    private double salary;
+
+    @NotNull(message = "Start date is mandatory")
+    @PastOrPresent(message = "Start date cannot be in the future")
+    private LocalDate startDate;
 
     public EmployeeDTO() {
     }
 
-    public EmployeeDTO(String name, Double salary) {
+    public EmployeeDTO(String name, double salary, LocalDate startDate) {
         this.name = name;
         this.salary = salary;
+        this.startDate = startDate;
     }
 
     public String getName() {
@@ -29,11 +35,19 @@ public class EmployeeDTO {
         this.name = name;
     }
 
-    public Double getSalary() {
+    public double getSalary() {
         return salary;
     }
 
-    public void setSalary(Double salary) {
+    public void setSalary(double salary) {
         this.salary = salary;
+    }
+
+    public LocalDate getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
     }
 }
